@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Login VortexTech</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container-centralizado">
+
+    <main class="perfil-card">
+
+        <h1>Login</h1>
+
+        <form action="/logar" method="POST">
+
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" name="email" required>
+            </div>
+
+            <div class="input-group">
+                <label>Senha</label>
+                <input type="password" name="senha" required>
+            </div>
+
+            <button class="btn-main" type="submit">
+                Entrar
+            </button>
+
+            <a href="/cadastro" class="btn-voltar">
+                Criar Conta
+            </a>
+
+        </form>
+
+    </main>
+
+</div>
+
+</body>
+</html>

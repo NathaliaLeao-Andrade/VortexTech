@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VortexTech | Vestibulares TO</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="corpo-claro">
+
+    <!-- Menu Superior Azul -->
+    <nav class="navbar-vestibular">
+        <div class="nav-content">
+            <a href="{{ url_for('dashboard') }}" class="nav-logo">
+                <i class="fas fa-chevron-left"></i> Vortex<span>Tech</span>
+            </a>
+            <div class="nav-title">Vestibulares Tocantins</div>
+            <div class="nav-user">
+                <div class="avatar-micro">N</div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <header class="section-header">
+            <h2>Processos Seletivos na Região</h2>
+            <p>Confira as datas e editais das principais instituições do Tocantins.</p>
+        </header>
+        <section class="grid-vestibulares">
+            <!-- UFT -->
+            <article class="vestibular-card">
+                <div class="vest-status status-aguarde">Edital em Breve</div>
+                <div class="vest-info">
+                    <img src="{{ url_for('static', filename='imagens/UFT logo.jfif') }}" alt="Logo UFT" style="object-fit: contain;">
+                    <h3>UFT (Estadual/Federal)</h3>
+                    <p><i class="fas fa-graduation-cap"></i> Vagas: Diversos Campus</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Palmas, Araguaína, Gurupi...</p>
+                    <button class="btn-secundario" onclick="window.open('https://www.uft.edu.br/')">Acessar Portal</button>
+                </div>
+            </article>
+
+            <!-- UNITINS -->
+            <article class="vestibular-card">
+                <div class="vest-status status-aberto">Inscrições Abertas</div>
+                <div class="vest-info">
+                    <img src="{{ url_for('static', filename='imagens/unitins logo.png') }}" alt="Logo Unitins" style="object-fit: contain;">
+                    <h3>UNITINS</h3>
+                    <p><i class="far fa-calendar-alt"></i> Vestibular 2026/1</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Todo o Estado</p>
+                    <button class="btn-secundario" onclick="window.open('https://www.unitins.br/')">Ver Cronograma</button>
+                </div>
+            </article>
+
+            <!-- IFTO -->
+            <article class="vestibular-card">
+                <div class="vest-status status-aberto">Processo Seletivo</div>
+                <div class="vest-info">
+                    <img src="{{ url_for('static', filename='imagens/IFTO logo.png') }}" alt="Logo IFTO" style="object-fit: contain;">
+                    <h3>IFTO</h3>
+                    <p><i class="fas fa-tools"></i> Cursos Técnicos e Superiores</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Vários Campus</p>
+                    <button class="btn-secundario" onclick="window.open('https://www.ifto.edu.br/')">Ver Editais</button>
+                </div>
+            </article>
+
+            <!-- ENEM / SISU (Focado no TO) -->
+            <article class="vestibular-card">
+                <div class="vest-status status-aguarde">Acompanhar</div>
+                <div class="vest-info">
+                    <div class="avatar-mini" style="background:#0f172a; color:white; padding:10px; border-radius:8px; margin-bottom:10px; text-align:center; font-weight:bold;">ENEM</div>
+                    <h3>ENEM 2026</h3>
+                    <p><i class="fas fa-info-circle"></i> Principal porta de entrada para UFNT e UFT.</p>
+                    <p><i class="far fa-clock"></i> Fique atento ao prazo de isenção.</p>
+                    <button class="btn-secundario" onclick="location.href='{{ url_for('enem') }}'">Dicas de Estudo</button>
+                </div>
+            </article>
+        </section>
+    </div>
+
+</body>
+</html>

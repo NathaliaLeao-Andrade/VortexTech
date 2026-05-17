@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VortexTech | Concursos TO</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='concurso.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar-vestibular">
+        <div class="nav-content">
+            <a href="{{ url_for('dashboard') }}" class="nav-logo"><i class="fas fa-chevron-left"></i> Vortex<span>Tech</span></a>
+            <div style="font-weight: 500; font-size: 15px;">Concursos Nível Médio</div>
+            <div class="nav-user-box">
+                <div class="avatar-micro">N</div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <header class="section-header">
+            <h2>Oportunidades Disponíveis</h2>
+            <p>Editais de nível médio com salários atualizados.</p>
+        </header>
+
+        <section class="grid-concursos">
+            
+            <!-- ALE-TO -->
+            <article class="vestibular-card">
+                <div class="vest-status status-andamento">Em Andamento</div>
+                <div class="vest-banner"><i class="fas fa-university"></i></div>
+                <div class="vest-info">
+                    <h3>ALE Tocantins</h3>
+                    <p><i class="fas fa-user-tie"></i> Assistente Legislativo</p>
+                    <p><i class="fas fa-coins"></i> Salário: <strong>R$ 3.847,65</strong></p>
+                    <button class="btn-secundario" onclick="window.open('https://conhecimento.fgv.br/concursos/aleto')">Ver Edital FGV</button>
+                </div>
+            </article>
+
+            <!-- PM-TO -->
+            <article class="vestibular-card">
+                <div class="vest-status status-andamento">Em Pauta</div>
+                <div class="vest-banner"><i class="fas fa-shield-alt"></i></div>
+                <div class="vest-info">
+                    <h3>Polícia Militar (PM-TO)</h3>
+                    <p><i class="fas fa-shield-alt"></i> Soldado Praça</p>
+                    <p><i class="fas fa-coins"></i> Salário: <strong>R$ 5.245,33</strong></p>
+                    <button class="btn-secundario" onclick="window.open('https://www.to.gov.br/pm/')">Portal da PM-TO</button>
+                </div>
+            </article>
+
+            <!-- PREFEITURA DE PALMAS -->
+            <article class="vestibular-card">
+                <div class="vest-status status-previsto">Previsto</div>
+                <div class="vest-banner"><i class="fas fa-city"></i></div>
+                <div class="vest-info">
+                    <h3>Prefeitura de Palmas</h3>
+                    <p><i class="fas fa-file-alt"></i> Assistente Administrativo</p>
+                    <p><i class="fas fa-coins"></i> Salário: <strong>R$ 2.232,00</strong></p>
+                    <button class="btn-secundario" onclick="window.open('https://www.copese.uft.edu.br/')">Acompanhar UFT</button>
+                </div>
+            </article>
+
+            <!-- ARAGUAÍNA -->
+            <article class="vestibular-card">
+                <div class="vest-status status-previsto">Anunciado</div>
+                <div class="vest-banner"><i class="fas fa-map-marked-alt"></i></div>
+                <div class="vest-info">
+                    <h3>Prefeitura Araguaína</h3>
+                    <p><i class="fas fa-id-card"></i> Assistente Técnico</p>
+                    <p><i class="fas fa-coins"></i> Salário: <strong>R$ 1.848,38</strong></p>
+                    <button class="btn-secundario" onclick="window.open('https://araguaina.to.gov.br/Concursos-e-Processos-Seletivos/')">Ver Portal</button>
+                </div>
+            </article>
+
+            <!-- GUARDA DE PALMAS -->
+            <article class="vestibular-card">
+                <div class="vest-status">Previsto</div>
+                <div class="vest-banner"><i class="fas fa-user-shield"></i></div>
+                <div class="vest-info">
+                    <h3>Guarda de Palmas</h3>
+                    <p><i class="fas fa-user-shield"></i> Guarda Metropolitano</p>
+                    <p><i class="fas fa-coins"></i> Salário: <strong>R$ 3.440,77</strong></p>
+                    <button class="btn-secundario" onclick="window.open('https://vunesp.com.br/')">Portal Vunesp</button>
+                </div>
+            </article>
+
+            <!-- SAÚDE SES-TO -->
+            <article class="vestibular-card">
+                <div class="vest-status status-encerrado">Aguardando</div>
+                <div class="vest-banner"><i class="fas fa-hospital-user"></i></div>
+                <div class="vest-info">
+                    <h3>Saúde (SES-TO)</h3>
+                    <p><i class="fas fa-notes-medical"></i> Assistente de Serviços</p>
+                    <p><i class="fas fa-coins"></i> Salário: <strong>R$ 1.650,00</strong></p>
+                    <button class="btn-secundario" onclick="window.open('https://www.to.gov.br/saude/concursos/')">Acompanhar SES</button>
+                </div>
+            </article>
+        </section>
+    </div>
+
+</body>
+</html>

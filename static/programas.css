@@ -1,0 +1,98 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: #f8fafc;
+    font-family: 'Segoe UI', sans-serif;
+    color: #1e293b;
+    line-height: 1.6;
+}
+
+/* NAVBAR IGUAL AO PADRÃO QUE VOCÊ GOSTA */
+.navbar-programas {
+    background-color: #0f172a;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0 5%;
+    color: white;
+}
+
+.nav-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo { text-decoration: none; color: white; font-weight: bold; font-size: 1.2rem; }
+.nav-logo span { color: #6366f1; }
+.nav-title { font-weight: 500; font-size: 15px; }
+.avatar-micro { width: 32px; height: 32px; background: #6366f1; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 13px; }
+
+/* LAYOUT INFORMATIVO */
+.main-container { max-width: 900px; margin: 2rem auto; padding: 0 20px; }
+
+.page-header { margin-bottom: 3rem; text-align: center; }
+.page-header h1 { color: #0f172a; font-size: 2rem; margin-bottom: 10px; }
+.page-header p { color: #64748b; }
+
+/* LISTA ESTRUTURADA */
+.info-list { display: flex; flex-direction: column; gap: 40px; }
+
+.info-item {
+    display: flex;
+    gap: 25px;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    transition: 0.3s;
+}
+
+.info-item:hover { border-color: #6366f1; transform: translateX(5px); }
+
+.info-icon {
+    min-width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
+/* Cores específicas dos ícones */
+.sisu-bg { background: #2e7d32; }
+.prouni-bg { background: #1565c0; }
+.fies-bg { background: #f9a825; }
+
+.info-text h2 { font-size: 1.4rem; margin-bottom: 12px; color: #0f172a; }
+.info-text p { margin-bottom: 15px; color: #475569; }
+
+.info-text ul { list-style: none; margin-bottom: 20px; }
+.info-text ul li { font-size: 14px; color: #64748b; margin-bottom: 5px; }
+.info-text ul i { color: #22c55e; margin-right: 8px; }
+
+.link-acesso {
+    display: inline-block;
+    color: #6366f1;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    border-bottom: 2px solid transparent;
+    transition: 0.2s;
+}
+
+.link-acesso:hover { border-bottom-color: #6366f1; }
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+    .info-item { flex-direction: column; }
+    .info-icon { width: 50px; height: 50px; }
+}

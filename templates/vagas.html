@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VortexTech | Vagas de Emprego</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='vagas.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar-vestibular">
+        <div class="nav-content">
+            <a href="{{ url_for('dashboard') }}" class="nav-logo"><i class="fas fa-chevron-left"></i> Vortex<span>Tech</span></a>
+            <div style="font-weight: 500; font-size: 15px;">Vagas de Emprego</div>
+            <div class="nav-user-box">
+                <div class="avatar-micro">N</div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <header class="section-header">
+            <h2>Oportunidades Disponíveis</h2>
+            <p>Vagas reais de emprego com salários atualizados no TO.</p>
+        </header>
+
+        <section class="grid-concursos">
+            
+            <!-- Vaga 1 -->
+            <article class="vestibular-card">
+                <div class="vest-status">Aberto</div>
+                <div class="vaga-banner"><i class="fas fa-file-invoice-dollar"></i></div>
+                <div class="vest-info">
+                    <h3>Auxiliar Administrativo</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Palmas - TO</p>
+                    <p><i class="fas fa-coins"></i> Salário: <strong>R$ 1.850,00</strong></p>
+                    <button class="btn-secundario" onclick="window.open('https://setas.to.gov.br/sine/')">Candidatar-se</button>
+                </div>
+            </article>
+
+            <!-- Vaga 2 -->
+            <article class="vestibular-card">
+                <div class="vest-status status-urgente">Urgente</div>
+                <div class="vaga-banner"><i class="fas fa-boxes"></i></div>
+                <div class="vest-info">
+                    <h3>Repositor de Estoque</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Araguaína - TO</p>
+                    <p><i class="fas fa-coins"></i> Salário: <strong>R$ 1.412,00</strong></p>
+                    <button class="btn-secundario" onclick="window.open('https://setas.to.gov.br/sine/')">Candidatar-se</button>
+                </div>
+            </article>
+
+            <!-- Vaga 3 -->
+            <article class="vestibular-card">
+                <div class="vest-status">Aberto</div>
+                <div class="vaga-banner"><i class="fas fa-truck-loading"></i></div>
+                <div class="vest-info">
+                    <h3>Assistente de Logística</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Gurupi - TO</p>
+                    <p><i class="fas fa-coins"></i> Salário: <strong>R$ 1.680,00</strong></p>
+                    <button class="btn-secundario" onclick="window.open('https://setas.to.gov.br/sine/')">Candidatar-se</button>
+                </div>
+            </article>
+
+            <!-- Vaga 4 -->
+            <article class="vestibular-card">
+                <div class="vest-status status-estagio">Estágio</div>
+                <div class="vaga-banner"><i class="fas fa-user-graduate"></i></div>
+                <div class="vest-info">
+                    <h3>Estágio em Atendimento</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Palmas - TO</p>
+                    <p><i class="fas fa-coins"></i> Bolsa: <strong>R$ 900,00</strong></p>
+                    <button class="btn-secundario" onclick="window.open('https://www.ciee.org.br/')">Candidatar-se</button>
+                </div>
+            </article>
+
+            <!-- Vaga 5 -->
+            <article class="vestibular-card">
+                <div class="vest-status">Aberto</div>
+                <div class="vaga-banner"><i class="fas fa-headset"></i></div>
+                <div class="vest-info">
+                    <h3>Vendedor Interno</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Porto Nacional - TO</p>
+                    <p><i class="fas fa-coins"></i> Salário: <strong>Comissão + Fixo</strong></p>
+                    <button class="btn-secundario" onclick="window.open('https://setas.to.gov.br/sine/')">Candidatar-se</button>
+                </div>
+            </article>
+
+            <!-- Vaga 6 -->
+            <article class="vestibular-card">
+                <div class="vest-status">Aberto</div>
+                <div class="vaga-banner"><i class="fas fa-university"></i></div>
+                <div class="vest-info">
+                    <h3>Jovem Aprendiz</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Paraíso do TO</p>
+                    <p><i class="fas fa-coins"></i> Salário: <strong>R$ 706,00</strong></p>
+                    <button class="btn-secundario" onclick="window.open('https://www.itau.com.br/carreiras/')">Candidatar-se</button>
+                </div>
+            </article>
+
+        </section>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VortexTech | Guia do ENEM</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dicasemprego.css') }}"> <!-- Reutilizando o CSS para manter o padrão -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar-dicas">
+        <div class="nav-content">
+            <a href="{{ url_for('dashboard') }}" class="nav-logo"><i class="fas fa-chevron-left"></i> Vortex<span>Tech</span></a>
+            <div class="nav-title">Desvendando o ENEM</div>
+            <div class="nav-user-box">
+                <div class="avatar-micro">N</div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-dicas" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+        <h1>ISSO AQ E TESTE, NAO TA PRONTO</h1>
+        <p>A sua principal porta de entrada para o ensino superior no Brasil. Entenda como a prova funciona e como se organizar.</p>
+    </div>
+
+    <main class="content-wrapper">
+        
+        <!-- Seção 1: O que é -->
+        <section class="dica-section">
+            <div class="dica-content">
+                <span class="step-number">01</span>
+                <h2>O que é o Exame?</h2>
+                <p>O Exame Nacional do Ensino Médio avalia o desempenho escolar dos estudantes ao fim da educação básica. Hoje, ele é a maior ferramenta de acesso à faculdade, sendo aceito em quase todas as instituições do país.</p>
+                <p>A prova é dividida em dois domingos, cobrando Linguagens, Ciências Humanas, Ciências da Natureza, Matemática e a famosa Redação.</p>
+            </div>
+            <div class="dica-visual">
+                <div class="image-placeholder" style="color: #f59e0b;"><i class="fas fa-book-open"></i></div>
+            </div>
+        </section>
+
+        <!-- Seção 2: Estratégia de Prova (Invertido) -->
+        <section class="dica-section reverse">
+            <div class="dica-content">
+                <span class="step-number">02</span>
+                <h2>Estratégia e o TRI</h2>
+                <p>Diferente de outros vestibulares, o ENEM usa a Teoria de Resposta ao Item (TRI). Isso significa que o sistema identifica "chutes". Se você acerta as difíceis e erra as fáceis, sua nota pode ser menor.</p>
+                <p><strong>A dica é:</strong> Garanta primeiro as questões fáceis e médias para construir uma base sólida de pontuação.</p>
+            </div>
+            <div class="dica-visual">
+                <div class="image-placeholder" style="color: #ef4444;"><i class="fas fa-brain"></i></div>
+            </div>
+        </section>
+
+        <!-- Seção 3: O que fazer com a nota -->
+        <section class="dica-section">
+            <div class="dica-content">
+                <span class="step-number">03</span>
+                <h2>Para onde ir agora?</h2>
+                <p>Com o resultado em mãos, você pode escolher diferentes caminhos dependendo do seu objetivo e da sua realidade financeira:</p>
+                <ul class="skills-tags">
+                    <li>#SISU (Públicas)</li>
+                    <li>#ProUni (Bolsas)</li>
+                    <li>#FIES (Financiamento)</li>
+                </ul>
+                <p style="margin-top: 20px;">Cada curso tem um "peso" diferente para as áreas do conhecimento. Fique atento ao que a sua faculdade dos sonhos valoriza mais!</p>
+            </div>
+            <div class="dica-visual">
+                <div class="image-placeholder" style="color: #6366f1;"><i class="fas fa-map-signs"></i></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer-dicas">
+        <p>Conteúdo informativo em desenvolvimento para a VortexTech.</p>
+    </footer>
+
+</body>
+</html>

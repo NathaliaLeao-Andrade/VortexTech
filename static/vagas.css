@@ -1,0 +1,115 @@
+/* RESET E PADRÃO */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: #f8fafc;
+    font-family: 'Segoe UI', sans-serif;
+    color: #1e293b;
+    line-height: 1.5;
+}
+
+/* NAVBAR  */
+.navbar-vestibular {
+    background-color: #0f172a;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0 5%;
+    color: white;
+}
+
+.nav-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo { text-decoration: none; color: white; font-weight: bold; font-size: 1.2rem; }
+.nav-logo span { color: #6366f1; }
+.avatar-micro { width: 32px; height: 32px; background: #6366f1; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 13px; }
+
+/* CONTAINER PRINCIPAL */
+.main-container { max-width: 1200px; margin: 2rem auto; padding: 0 20px; }
+.section-header { margin-bottom: 2rem; border-left: 4px solid #6366f1; padding-left: 15px; }
+.section-header h2 { font-size: 1.6rem; color: #0f172a; }
+.section-header p { color: #64748b; font-size: 14px; }
+
+/* GRID */
+.grid-concursos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 15px;
+}
+
+/* CARD */
+.vestibular-card {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    height: 380px; /* Aumentei um pouco só para caber a foto sem espremer o texto */
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.vestibular-card:hover {
+    transform: translateY(-5px);
+    border-color: #6366f1;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.vest-status {
+    padding: 6px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 800;
+    background: #dcfce7;
+    color: #166534;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* A IMAGEM QUE VOCÊ QUERIA MANTER */
+.vaga-banner {
+    height: 100px;
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #6366f1;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.vest-info { padding: 18px; display: flex; flex-direction: column; flex-grow: 1; }
+.vest-info h3 { font-size: 1.05rem; margin-bottom: 10px; color: #0f172a; height: 45px; overflow: hidden; line-height: 1.2; }
+.vest-info p { font-size: 13px; color: #64748b; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+.vest-info i { color: #6366f1; width: 14px; font-size: 14px; }
+
+/* BOTÃO*/
+.btn-secundario {
+    margin-top: auto;
+    background-color: transparent;
+    color: #4f46e5;
+    border: 2px solid #4f46e5;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+.btn-secundario:hover { background-color: #4f46e5; color: white; }
+
+/* STATUS */
+.status-urgente { background: #fee2e2; color: #991b1b; }
+.status-estagio { background: #dbeafe; color: #1e40af; }

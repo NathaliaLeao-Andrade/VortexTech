@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VortexTech | SISU, ProUni e FIES</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='programas.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- NAVBAR PADRÃO VORTEXTECH -->
+    <nav class="navbar-programas">
+        <div class="nav-content">
+            <a href="{{ url_for('dashboard') }}" class="nav-logo"><i class="fas fa-chevron-left"></i> Vortex<span>Tech</span></a>
+            <div class="nav-title">Programas do Governo</div>
+            <div class="nav-user-box">
+                <div class="avatar-micro">N</div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <header class="page-header">
+            <h1>Guia SISU, ProUni e FIES</h1>
+            <p>Entenda as regras, critérios e garanta sua vaga no ensino superior.</p>
+        </header>
+
+        <section class="info-list">
+
+            <!-- SISU -->
+            <div class="info-item">
+                <div class="info-logo-wrapper">
+                    <img src="{{ url_for('static', filename='imagens/sisu icon.png') }}" alt="Logo SISU" class="program-logo">
+                </div>
+                <div class="info-text">
+                    <h2>SISU - Sistema de Seleção Unificada</h2>
+                    <p>O SISU é o sistema informatizado do MEC no qual instituições públicas de ensino superior (Universidades Federais, Estaduais e Institutos Federais) oferecem vagas para candidatos participantes do Exame Nacional do Ensino Médio (Enem). É a principal forma de entrar em faculdades públicas sem pagar mensalidade.</p>
+                    
+                    <div class="detalhes-texto">
+                        <strong>Quem pode participar?</strong>
+                        <p>Qualquer pessoa que tenha feito a edição mais recente do ENEM e não tenha tirado zero na redação. Diferente de outros programas, o SISU não possui critérios de renda para a ampla concorrência.</p>
+                    </div>
+
+                    <ul>
+                        <li><i class="fas fa-check"></i> <strong>Vagas:</strong> Instituições públicas (gratuitas).</li>
+                        <li><i class="fas fa-check"></i> <strong>Seleção:</strong> Ocorre duas vezes ao ano (início de cada semestre).</li>
+                        <li><i class="fas fa-check"></i> <strong>Cotas:</strong> Lei de Cotas reserva vagas para escolas públicas, pretos, pardos e indígenas.</li>
+                    </ul>
+                    <a href="https://acessounico.mec.gov.br/sisu" target="_blank" class="link-acesso">Acessar Portal SISU <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+
+            <!-- PROUNI -->
+            <div class="info-item">
+                <div class="info-logo-wrapper">
+                    <img src="{{ url_for('static', filename='imagens/prouni icon.png') }}" alt="Logo ProUni" class="program-logo">
+                </div>
+                <div class="info-text">
+                    <h2>ProUni - Programa Universidade para Todos</h2>
+                    <p>O ProUni concede bolsas de estudo integrais e parciais em cursos de graduação em instituições privadas de ensino superior. O foco é ajudar estudantes que não teriam condições de arcar com os custos de uma faculdade particular.</p>
+                    
+                    <div class="detalhes-texto">
+                        <strong>Regras de Renda:</strong>
+                        <p>• <strong>Bolsas Integrais (100%):</strong> Renda familiar bruta mensal de até 1,5 salário mínimo por pessoa.<br>
+                           • <strong>Bolsas Parciais (50%):</strong> Renda familiar bruta mensal de até 3 salários mínimos por pessoa.</p>
+                    </div>
+
+                    <ul>
+                        <li><i class="fas fa-check"></i> <strong>Requisito:</strong> Ter estudado o ensino médio em escola pública ou como bolsista integral na rede privada.</li>
+                        <li><i class="fas fa-check"></i> <strong>Nota:</strong> Mínimo de 450 pontos na média das provas e nota acima de zero na redação.</li>
+                        <li><i class="fas fa-check"></i> <strong>Vínculo:</strong> Destinado a quem ainda não possui diploma de ensino superior.</li>
+                    </ul>
+                    <a href="https://acessounico.mec.gov.br/prouni" target="_blank" class="link-acesso">Acessar Portal ProUni <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+
+            <!-- FIES -->
+            <div class="info-item">
+                <div class="info-logo-wrapper">
+                    <img src="{{ url_for('static', filename='imagens/fies icon.png') }}" alt="Logo FIES" class="program-logo">
+                </div>
+                <div class="info-text">
+                    <h2>FIES - Fundo de Financiamento Estudantil</h2>
+                    <p>O FIES é um modelo de financiamento para cursos superiores em instituições privadas com avaliação positiva no MEC. Ao contrário do SISU e ProUni, aqui você contrai um empréstimo para pagar o curso, mas com condições muito mais leves que os bancos comuns.</p>
+                    
+                    <div class="detalhes-texto">
+                        <strong>Como funciona o pagamento?</strong>
+                        <p>Durante o curso, o estudante paga apenas o valor correspondente ao seguro de vida e taxas bancárias. O pagamento da dívida começa após a formatura, de acordo com a renda do agora profissional.</p>
+                    </div>
+
+                    <ul>
+                        <li><i class="fas fa-check"></i> <strong>Juro Zero:</strong> Disponível para candidatos com renda per capita de até 3 salários mínimos.</li>
+                        <li><i class="fas fa-check"></i> <strong>Flexibilidade:</strong> Pode ser solicitado em qualquer período do ano, dependendo dos editais.</li>
+                        <li><i class="fas fa-check"></i> <strong>P-Fies:</strong> Modalidade para rendas maiores (até 5 salários mínimos) com juros baixos.</li>
+                    </ul>
+                    <a href="https://acessounico.mec.gov.br/fies" target="_blank" class="link-acesso">Acessar Portal FIES <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VortexTech | Plataforma para Jovens</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo-container">
+                <h2 class="brand">Vortex<span>Tech</span></h2>
+                <span class="product-name">Plataforma para Jovens</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active" onclick="window.location.href='/dashboard'"><a href="#"><i class="fas fa-th-large"></i> Início</a></li>
+                    <li onclick="window.location.href='/vestibulares'">
+                        <a href="/vestibulares"><i class="fas fa-edit"></i> Vestibulares TO</a>
+                    </li>
+                    
+                    <li onclick="window.location.href='/concursos'">
+                        <a href="/concursos"><i class="fas fa-file-signature"></i> Concursos</a>
+                    </li>
+                    
+                    
+                    <li onclick="window.location.href='/programas'">
+                        <a href="/programas"><i class="fas fa-graduation-cap"></i> SISU / ProUni/ Fies</a>
+                    </li>
+                    
+                    <li onclick="window.location.href='/vagas'">
+                        <a href="/vagas"><i class="fas fa-user-tie"></i> Empregos</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="user-badge" onclick="window.location.href='/perfil'" style="cursor: pointer;">
+                <div class="avatar">{{ usuario.nome[0] }}</div>
+                <div class="user-info">
+                    <span></span>
+                    <small>Ver Configurações</small>
+                </div>
+            </div> 
+        </aside>
+
+    
+        <main class="main-content">
+            <header class="top-header">
+                <div class="welcome-text">
+                    <h1>Bem-vindo(a), {{ usuario.nome }}!👋</h1>
+                    <p>Sua jornada começa aqui. Explore seu futuro.</p>
+                </div>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="O que você procura hoje?">
+                </div>
+            </header>
+
+            <section class="highlights">
+              
+                <div class="alert-card sisu" onclick="showAlert('Inscrições SISU abrem em 4 dias!')">
+                    <div class="icon"><i class="fas fa-clock"></i></div>
+                    <div class="text">
+                        <h3>Inscrições SISU</h3>
+                        <p>Faltam apenas 4 dias!</p>
+                    </div>
+                </div>
+
+                <div class="alert-card jobs" onclick="window.location.href='/vagas'">
+                    <div class="icon"><i class="fas fa-briefcase"></i></div>
+                    <div class="text">
+                        <h3>Novas Vagas</h3>
+                        <p>06 oportunidades encontradas na sua região</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="learning-paths">
+                <h2>Caminhos Recomendados</h2>
+                <div class="grid-paths">
+                    <article class="path-item">
+                        <div class="path-image p-1">
+                            <img src="{{ url_for('static', filename='imagens/enem banner.jpeg') }}" alt="Estudos">
+                        </div>
+                        <div class="path-content">
+                            <span class="tag">Acadêmico</span>
+                            <h3>Desvendando o ENEM</h3>
+                            <p>Tudo sobre como usar sua nota para entrar na faculdade e como participar.</p>
+                            <button class="btn-main" onclick="window.location.href='/enem'">Começar Trilha</button>
+                        </div>
+                    </article>
+
+                    <article class="path-item">
+                        <div class="path-image">
+                            <img src="{{ url_for('static', filename='imagens/Vestibular.jpg') }}" alt="Vestibulares Tocantins">
+                        </div>
+                        <div class="path-content">
+                            <span class="tag">Tocantins</span>
+                            <h3>Vestibulares da Região</h3>
+                            <p>Acesse editais e datas da UFT, Unitins, IFTO e muito mais.</p>
+                            <button class="btn-main" onclick="window.location.href='/vestibulares'">Ver Oportunidades</button>
+                        </div>
+                    </article>
+
+                    <article class="path-item">
+                        <div class="path-image p-2">
+                            <img src="{{ url_for('static', filename='imagens/Jovem trabalhador.jfif') }}" alt="Emprego">
+                        </div>
+                        <div class="path-content">
+                            <span class="tag">Carreira</span>
+                            <h3>Primeiro Emprego</h3>
+                            <p>Como montar um currículo campeão mesmo sem experiência.</p>
+                            <!-- No index.html, altere o botão do card de dicas -->
+                            <button class="btn-main" onclick="window.location.href='/dicas'">Ver Dicas</button>
+                        </div>
+                    </article>
+
+                    <article class="path-item">
+                        <div class="path-image p-3">
+                            <img src="{{ url_for('static', filename='imagens/Maratona-de-editais.webp') }}" alt="Concursos">
+                        </div>
+                        <div class="path-content">
+                            <span class="tag">Concursos</span>
+                            <h3>Editais - Concursos de Nível Médio</h3>
+                            <p>Conheça os editais perfeitos para você no Tocantins.</p>
+                            <button class="btn-main" onclick="window.location.href='/concursos'">Explorar</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <p>&copy; 2026 <strong>VortexTech</strong>. Transformando o futuro dos jovens.</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

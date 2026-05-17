@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VortexTech | Meu Perfil</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container-centralizado">
+
+        <!-- BOTÃO VOLTAR -->
+        <a href="/dashboard" class="btn-voltar">
+            <i class="fas fa-arrow-left"></i>
+            Voltar ao Início
+        </a>
+
+        <main class="perfil-card">
+
+            <header class="perfil-header">
+
+                <!-- AVATAR SIMPLES (SEM IMAGEM) -->
+                <div class="avatar-container">
+
+                    <div class="avatar-grande">
+                        {{ usuario.nome[0] }}
+                    </div>
+
+                </div>
+
+                <h1>Meu Perfil</h1>
+
+                <p>{{ usuario.nome }}</p>
+
+            </header>
+
+            <section class="perfil-form">
+
+                <!-- FORM -->
+                <form action="/atualizar_perfil" method="POST">
+
+                    <!-- IDADE -->
+                    <div class="input-group">
+
+                        <label>
+                            <i class="fas fa-user"></i>
+                            Idade
+                        </label>
+
+                        <input
+                        type="number"
+                        name="idade"
+                        placeholder="Digite sua idade"
+                        value="{{ perfil.idade if perfil else '' }}">
+
+                    </div>
+
+                    <!-- CIDADE -->
+                    <div class="input-group">
+
+                        <label>
+                            <i class="fas fa-city"></i>
+                            Cidade
+                        </label>
+
+                        <input
+                        type="text"
+                        name="cidade"
+                        placeholder="Digite sua cidade"
+                        value="{{ perfil.cidade if perfil else '' }}">
+
+                    </div>
+
+                    <!-- INTERESSE -->
+                    <div class="input-group">
+
+                        <label>
+                            <i class="fas fa-star"></i>
+                            Área de Interesse
+                        </label>
+
+                        <input
+                        type="text"
+                        name="interesse"
+                        placeholder="Ex: Tecnologia, Medicina..."
+                        value="{{ perfil.interesse if perfil else '' }}">
+
+                    </div>
+
+                    <!-- BOTÕES -->
+                    <div class="acoes-perfil">
+
+                        <button type="submit" class="btn-main">
+                            Salvar Alterações
+                        </button>
+
+                        <a href="/logout" class="btn-logout">
+                            Sair da Conta
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

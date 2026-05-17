@@ -1,0 +1,554 @@
+:root {
+    --bg: #f8fafc;
+    --sidebar: #0f172a;
+    --primary: #4f46e5;
+    --secondary: #6366f1;
+    --white: #ffffff;
+    --text-dark: #1e293b;
+    --text-light: #64748b;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+body { background: var(--bg); color: var(--text-dark); }
+
+.container { display: flex; min-height: 100vh; }
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    background: var(--sidebar);
+    color: var(--white);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+}
+
+.brand { font-size: 1.6rem; }
+.brand span { color: var(--secondary); }
+.product-name { font-size: 0.7rem; color: var(--text-light); letter-spacing: 2px; }
+
+.sidebar-nav { margin-top: 3rem; flex-grow: 1; }
+.sidebar-nav ul { list-style: none; }
+.sidebar-nav li a {
+    color: #94a3b8;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0.8rem;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.sidebar-nav li.active a, .sidebar-nav li a:hover {
+    background: rgba(255,255,255,0.1);
+    color: var(--white);
+}
+
+.user-badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid #1e293b;
+    padding-top: 1rem;
+}
+
+.avatar { width: 50px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+
+/* Conteúdo Principal */
+.main-content { margin-left: 280px; flex-grow: 1; padding: 3rem; }
+
+.top-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 3rem; }
+
+.search-bar { position: relative; }
+.search-bar i { position: absolute; left: 15px; top: 12px; color: var(--text-light); }
+.search-bar input {
+    padding: 10px 15px 10px 40px;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    width: 300px;
+}
+
+/* Cards */
+.highlights { display: flex; gap: 20px; margin-bottom: 3rem; }
+.alert-card {
+    flex: 1;
+    padding: 1.5rem;
+    border-radius: 12px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.alert-card:hover { opacity: 0.9; transform: scale(1.02); }
+.sisu { background: linear-gradient(135deg, #4f46e5, #818cf8); }
+.jobs { background: #1e293b; }
+
+/* Grid de Caminhos */
+.grid-paths { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+.path-item { background: white; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; }
+.path-image { height: 120px; }
+.p-1 { background: #eef2ff; }
+.p-2 { background: #f1f5f9; }
+.p-3 { background: #fff1f2; }
+
+.path-content { padding: 1.5rem; }
+.tag { font-size: 0.6rem; font-weight: bold; color: var(--primary); background: #e0e7ff; padding: 3px 8px; border-radius: 5px; }
+.path-content h3 { margin: 10px 0; font-size: 1.1rem; }
+.path-content p { font-size: 0.85rem; color: var(--text-light); margin-bottom: 1.5rem; }
+
+.btn-main {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: var(--primary);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.footer { margin-top: 4rem; text-align: center; font-size: 0.8rem; color: var(--text-light); }
+
+/* Ajuste para os containers de imagem */
+.path-image {
+    height: 180px; /* Altura do quadrado da imagem */
+    overflow: hidden; /* Corta o que sobrar da imagem */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e2e8f0; /* Cor de fundo caso a imagem falhe */
+}
+
+.path-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a imagem preencher o espaço sem esticar */
+    transition: transform 0.5s ease;
+}
+
+/* Efeito de zoom quando passar o mouse no card */
+.path-item:hover .path-image img {
+    transform: scale(1.1);
+}
+
+/* Estilo do Modal (Janela Flutuante) */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 50%;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close {
+    float: right;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--text-light);
+}
+
+.btn-main:active {
+    transform: scale(0.95);
+}
+
+/* AJUSTES PARA CELULAR (Telas menores que 768px) */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Coloca o menu em cima e o conteúdo embaixo */
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative; /* Tira a barra lateral fixa */
+        padding: 1.5rem;
+    }
+
+    .main-content {
+        margin-left: 0; /* Remove o espaço da barra lateral */
+        padding: 1.5rem;
+    }
+
+    .top-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .search-bar, .search-bar input {
+        width: 100%; /* Busca ocupa a largura toda no celular */
+    }
+
+    .highlights {
+        flex-direction: column; /* Cards de alerta um embaixo do outro */
+    }
+
+    .grid-paths {
+        grid-template-columns: 1fr; /* Trilhas ocupam a largura toda */
+    }
+
+    .modal-content {
+        width: 90%; /* Janela flutuante ocupa quase a tela toda */
+        margin: 20% auto;
+    }
+}
+
+/* Variáveis de Cores VortexTech */
+:root {
+    --bg: #f8fafc;
+    --primary: #4f46e5;
+    --secondary: #6366f1;
+    --white: #ffffff;
+    --text-dark: #1e293b;
+    --text-light: #64748b;
+}
+
+/* PERFIL*/
+
+.container-centralizado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #0f172a; /* O novo fundo azul profundo */
+    padding: 20px;
+}
+
+.btn-voltar {
+    text-decoration: none;
+    color: #b9cae1; /* Um cinza claro para destacar no fundo escuro */
+    margin-bottom: 15px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-voltar:hover {
+    color: #ffffff; /* Fica branco ao passar o mouse */
+}
+
+.perfil-card {
+    background: #ffffff; /* O card continua branco para dar contraste */
+    width: 100%;
+    max-width: 450px;
+    padding: 2rem;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3); /* Sombra mais forte para destacar no fundo escuro */
+    text-align: center;
+    border: none; /* Removemos a borda para um visual mais limpo */
+}
+
+/* Avatar e Troca de Foto */
+.avatar-container {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 20px;
+    cursor: pointer;
+}
+
+.avatar-grande {
+    width: 100%;
+    height: 100%;
+    background: var(--primary);
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.camera-icon {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: var(--secondary);
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid white;
+}
+
+/* Formulário */
+.input-group {
+    text-align: left;
+    margin-bottom: 1.2rem;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text-dark);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    background: #f1f5f9;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: var(--primary);
+    background: white;
+}
+
+.acoes-perfil {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-main {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-logout {
+    background: transparent;
+    color: #ef4444;
+    border: 1px solid #fecaca;
+    padding: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+
+/* Para o ícone/letra que fica na Sidebar (User Badge) */
+.avatar {
+    width: 40px;           /* Tamanho fixo */
+    height: 40px;          /* Tamanho fixo */
+    border-radius: 50%;    /* Garante que é redondo */
+    background-color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;        /* ESSENCIAL: impede que o círculo achate se o nome for grande */
+    color: white;
+    font-weight: bold;
+}
+
+/* Para o ícone grande na página de Perfil/Cadastro */
+.avatar-grande {
+    width: 80px;           /* Tamanho maior e fixo */
+    height: 80px;          /* Tamanho maior e fixo */
+    border-radius: 50%;
+    background-color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;        /* Impede de ficar oval em telas menores */
+    margin: 0 auto 15px;   /* Centraliza horizontalmente */
+    color: white;
+}
+
+/* Estilos da Página de Vestibulares */
+.main-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-header {
+    margin-bottom: 2rem;
+}
+
+.btn-voltar-home {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1rem;
+}
+
+.grid-vestibulares {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.vestibular-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.vestibular-card:hover {
+    transform: translateY(-5px);
+}
+
+.vest-status {
+    padding: 8px;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status-aberto { background: #dcfce7; color: #166534; }
+.status-aguarde { background: #fef3c7; color: #d97706; }
+.status-encerrado { background: #fee2e2; color: #991b1b; }
+
+.vest-info {
+    padding: 1.5rem;
+}
+
+.vest-info img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+
+.vest-info h3 {
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.vest-info p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 5px;
+}
+
+.btn-secundario {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--primary);
+    background: transparent;
+    color: var(--primary);
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-secundario:hover:not(:disabled) {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-secundario:disabled {
+    border-color: #ccc;
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Estilo da Navbar Superior */
+.navbar-vestibular {
+    background-color: #0f172a; /* O azul que você escolheu */
+    height: 70px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 0 2rem;
+}
+
+.nav-content {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.nav-logo {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.nav-logo span { color: #6366f1; } /* Cor roxa do Tech */
+
+.nav-title {
+    font-weight: 500;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+
+.avatar-micro {
+    width: 30px;
+    height: 30px;
+    background: #6366f1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+/* Ajuste do corpo da página para não ficar colado no menu */
+.corpo-claro {
+    background-color: #f8fafc; /* Fundo leve para os cards se destacarem */
+    margin: 0;
+}
+
+.section-header {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.section-header h2 { color: #1e293b; }
+.section-header p { color: #64748b; }
+
