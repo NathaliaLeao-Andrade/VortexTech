@@ -292,3 +292,11 @@ def logout():
 # INICIAR SERVIDOR
 # =========================
 app.run(debug=True)
+
+
+conexao = mysql.connector.connect(
+    host='localhost',
+    user='root',
+    password='',
+    database='vortex_tech'
+)
