@@ -86,7 +86,7 @@ VortexTech/
 ### 1. Clonar o repositório
 
 ```bash
-git clone LINK_DO_REPOSITORIO
+git clone https://nathalialeao-andrade.github.io/VortexTech/
 ```
 
 ### 2. Acessar a pasta do projeto
