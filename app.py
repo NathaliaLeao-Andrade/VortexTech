@@ -1,19 +1,9 @@
 from flask import Flask, render_template, request, redirect, session
-import mysql.connector
 
 app = Flask(__name__)
 
 app.secret_key = 'vortextech'
 
-# CONEXÃO MYSQL
-conexao = mysql.connector.connect(
-    host='localhost',
-    user='root',
-    password='12345678',
-    database='vortex_tech'
-)
-
-cursor = conexao.cursor(dictionary=True)
 
 # =========================
 # LOGIN
@@ -37,26 +27,14 @@ def cadastro():
 @app.route('/logar', methods=['POST'])
 def logar():
 
-    email = request.form['email']
-    senha = request.form['senha']
+    usuario_fake = {
+        'id_usuario': 1,
+        'nome': 'Usuário'
+    }
 
-    sql = '''
-    SELECT * FROM usuarios
-    WHERE email = %s
-    AND senha = %s
-    '''
+    session['usuario'] = usuario_fake
 
-    cursor.execute(sql, (email, senha))
-
-    usuario = cursor.fetchone()
-
-    if usuario:
-
-        session['usuario'] = usuario
-
-        return redirect('/dashboard')
-
-    return 'Email ou senha inválidos'
+    return redirect('/dashboard')
 
 
 # =========================
@@ -64,38 +42,6 @@ def logar():
 # =========================
 @app.route('/cadastrar', methods=['POST'])
 def cadastrar():
-
-    nome = request.form['nome']
-    email = request.form['email']
-    senha = request.form['senha']
-
-    sql_verifica = '''
-    SELECT * FROM usuarios
-    WHERE email = %s
-    '''
-
-    cursor.execute(sql_verifica, (email,))
-
-    usuario_existente = cursor.fetchone()
-
-    if usuario_existente:
-        return 'Este email já está cadastrado'
-
-    sql = '''
-    INSERT INTO usuarios
-    (nome, email, senha)
-    VALUES (%s, %s, %s)
-    '''
-
-    valores = (
-        nome,
-        email,
-        senha
-    )
-
-    cursor.execute(sql, valores)
-
-    conexao.commit()
 
     return redirect('/')
 
@@ -124,21 +70,10 @@ def perfil():
     if 'usuario' not in session:
         return redirect('/')
 
-    id_usuario = session['usuario']['id_usuario']
-
-    sql = '''
-    SELECT * FROM perfis
-    WHERE id_usuario = %s
-    '''
-
-    cursor.execute(sql, (id_usuario,))
-
-    perfil = cursor.fetchone()
-
     return render_template(
         'perfil.html',
         usuario=session['usuario'],
-        perfil=perfil
+        perfil=None
     )
 
 
@@ -147,60 +82,6 @@ def perfil():
 # =========================
 @app.route('/atualizar_perfil', methods=['POST'])
 def atualizar_perfil():
-
-    if 'usuario' not in session:
-        return redirect('/')
-
-    idade = request.form['idade']
-    cidade = request.form['cidade']
-    interesse = request.form['interesse']
-
-    id_usuario = session['usuario']['id_usuario']
-
-    sql_verifica = '''
-    SELECT * FROM perfis
-    WHERE id_usuario = %s
-    '''
-
-    cursor.execute(sql_verifica, (id_usuario,))
-
-    perfil_existente = cursor.fetchone()
-
-    if perfil_existente:
-
-        sql = '''
-        UPDATE perfis
-        SET idade = %s,
-            cidade = %s,
-            interesse = %s
-        WHERE id_usuario = %s
-        '''
-
-        valores = (
-            idade,
-            cidade,
-            interesse,
-            id_usuario
-        )
-
-    else:
-
-        sql = '''
-        INSERT INTO perfis
-        (idade, cidade, interesse, id_usuario)
-        VALUES (%s, %s, %s, %s)
-        '''
-
-        valores = (
-            idade,
-            cidade,
-            interesse,
-            id_usuario
-        )
-
-    cursor.execute(sql, valores)
-
-    conexao.commit()
 
     return redirect('/perfil')
 
@@ -291,12 +172,4 @@ def logout():
 # =========================
 # INICIAR SERVIDOR
 # =========================
-app.run(debug=True)
-
-
-conexao = mysql.connector.connect(
-    host='localhost',
-    user='root',
-    password='',
-    database='vortex_tech'
-)
+app.run(host='0.0.0.0', port=10000)
