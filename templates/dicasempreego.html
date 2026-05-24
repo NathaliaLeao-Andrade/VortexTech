@@ -32,7 +32,7 @@
                 <h2>O Currículo Perfeito</h2>
                 <p>Mesmo sem experiência, o teu currículo deve mostrar o teu potencial. Foca na tua formação, cursos técnicos, projetos voluntários e até mesmo trabalhos escolares que mostrem liderança ou organização.</p>
                 <p><strong>Dica Extra:</strong> Mantém o design simples, usa fontes legíveis e nunca envies o ficheiro em formato Word, prefere sempre o PDF.</p>
-                <button class="btn-dica">Ver Modelos</button>
+                <button class="btn-dica" id="btnAbrirModelo">Ver Modelos</button>
             </div>
             <div class="dica-visual">
                 <div class="image-placeholder"><i class="fas fa-file-alt"></i></div>
@@ -69,9 +69,41 @@
 
     </main>
 
+    <div id="modalCurriculo" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="cv-preview">
+                <div class="cv-header">
+                    <h3>NOME DO CANDIDATO</h3>
+                    <p>Palmas - TO | (63) 99999-9999 | seu-email@email.com</p>
+                </div>
+                <div class="cv-body">
+                    <h4>Objetivo Profissional</h4>
+                    <p>Busco oportunidade de primeiro emprego na área técnica/administrativa para desenvolver minhas habilidades e contribuir com o crescimento da empresa.</p>
+                    
+                    <h4>Formação Acadêmica</h4>
+                    <p><strong>Ensino Médio Técnico em Informática</strong><br>Instituição de Ensino - Conclusão: 2026</p>
+                    
+                    <h4>Principais Competências</h4>
+                    <p>• Pacote Office (Word, Excel) | • Boa Comunicação | • Trabalho em Equipe</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer class="footer-dicas">
         <p>&copy; 2026 <strong>VortexTech</strong>. Direcionando o futuro dos jovens profissionais.</p>
     </footer>
+
+    <script>
+        const modal = document.getElementById("modalCurriculo");
+        const btn = document.getElementById("btnAbrirModelo");
+        const span = document.getElementsByClassName("close-modal")[0];
+
+        btn.onclick = function() { modal.style.display = "flex"; }
+        span.onclick = function() { modal.style.display = "none"; }
+        window.onclick = function(event) { if (event.target == modal) { modal.style.display = "none"; } }
+    </script>
 
 </body>
 </html>
