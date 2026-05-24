@@ -143,7 +143,7 @@ def dicas():
     if 'usuario' not in session:
         return redirect('/')
 
-    return render_template('dicasdeemprego.html')
+    return render_template('dicasempreego.html')
 
 
 # =========================
